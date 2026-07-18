@@ -12,7 +12,10 @@ const AppRoutes = ({ whatsappNumber, heroImage, specialItems, menuCategories, on
         path="/"
         element={<Home whatsappNumber={whatsappNumber} heroImage={heroImage} specialItems={specialItems} />}
       />
-      <Route path="/menu" element={<Menu menuCategories={menuCategories} onOrder={onOrder} />} />
+      <Route
+        path="/menu"
+        element={<Menu whatsappNumber={whatsappNumber} menuCategories={menuCategories} onOrder={onOrder} />}
+      />
       <Route path="/gallery" element={<Gallery galleryItems={galleryItems} />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact whatsappNumber={whatsappNumber} />} />

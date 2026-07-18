@@ -34,14 +34,14 @@ const menuItems = [
   {
     category: 'Shake',
     name: 'Oreo Shake',
-    prices: { half: 50, full: 70 },
+    price: 90 ,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
     image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80'
   },
   {
     category: 'Shake',
     name: 'Strawberry Shake',
-    prices: { half: 50, full: 70 },
+    price: 80,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
     image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80'
   },
@@ -55,14 +55,14 @@ const menuItems = [
   {
     category: 'Shake',
     name: 'Vanilla Shake',
-    prices: { half: 50, full: 70 },
+    price:80,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
     image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80'
   },
   {
     category: 'Shake',
     name: 'Mango Shake',
-    prices: { half: 50, full: 70 },
+    price:80,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
     image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80'
   },
