@@ -30,6 +30,7 @@ const Menu = ({ whatsappNumber, menuCategories = [], onOrder = () => { } }) => {
   const categories = Array.isArray(menuCategories) ? menuCategories : []
   const [activeCategory, setActiveCategory] = useState('All')
   const [cartItems, setCartItems] = useState([])
+  const [phone, setPhone] = useState("");
 
   const categoryTitles = ['All', ...categories.map((c) => c.title)]
 
@@ -90,6 +91,8 @@ const Menu = ({ whatsappNumber, menuCategories = [], onOrder = () => { } }) => {
 
     return `Hello Hot & Cold Cafe, please take my order:
 
+📞 Customer Mobile: ${phone}    
+    
 🛒 Order Details
 
 ${lines.join("\n")}
@@ -102,6 +105,12 @@ Thank you! 😊`;
 
   const handleCartOrder = () => {
     if (!cartItems.length) return
+
+    if (phone.length !== 10) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(buildCartText())}`
     window.open(url, '_blank')
   }
@@ -276,6 +285,17 @@ Thank you! 😊`;
               <div className="cart-divider"></div>
 
               <div className="cart-footer">
+                <input
+                  type="tel"
+                  placeholder="Enter your mobile number"
+                  value={phone}
+                  onChange={(e) =>
+                    setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
+                  }
+                  maxLength={10}
+                  className="phone-input"
+                />
+
                 <div className="cart-total">
                   <span className="total-label">
                     Total
