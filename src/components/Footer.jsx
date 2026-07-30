@@ -24,9 +24,6 @@ function Footer({ whatsappNumber }) {
             <NavLink to="/gallery" className="footer-link">
               Gallery
             </NavLink>
-            <NavLink to="/about" className="footer-link">
-              About
-            </NavLink>
             <NavLink to="/contact" className="footer-link">
               Contact
             </NavLink>

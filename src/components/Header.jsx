@@ -23,9 +23,6 @@ const Header = ({ whatsappNumber }) => {
         <NavLink to="/gallery" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Gallery
         </NavLink>
-        <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-          About
-        </NavLink>
         <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Contact
         </NavLink>

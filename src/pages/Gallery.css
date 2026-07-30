@@ -1,36 +1,344 @@
-.gallery-section {
-  margin-top: 28px;
+/* ==========================================================================
+   Creative & Cool Aesthetic Gallery Styling
+   ========================================================================== */
+
+.aesthetic-gallery {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 10px 0 60px;
 }
 
-.gallery-grid {
+/* Header */
+.gallery-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.gallery-accent-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f39c12;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.gallery-main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin: 0 0 10px;
+  background: linear-gradient(135deg, #ffffff 30%, #f39c12 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gallery-tagline-text {
+  color: #a09587;
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Creative Staggered Grid */
+.gallery-creative-grid {
   display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  align-items: start;
 }
 
-.gallery-card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+/* Aesthetic Card */
+.aesthetic-card {
+  margin: 0;
+  background: rgba(22, 16, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
-  overflow: hidden;
-  padding: 18px;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-.gallery-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+.aesthetic-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(243, 156, 18, 0.4);
+  box-shadow: 0 20px 45px rgba(243, 156, 18, 0.15);
 }
 
-.gallery-card img {
+/* Staggered Heights for Visual Creativity */
+.card-variant-1 .aesthetic-img-box {
+  height: 280px;
+}
+
+.card-variant-2 .aesthetic-img-box {
+  height: 320px;
+}
+
+.card-variant-3 .aesthetic-img-box {
+  height: 260px;
+}
+
+/* Image Box */
+.aesthetic-img-box {
+  position: relative;
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0d0a08;
 }
 
-.gallery-card h3 {
-  margin: 16px 0 0;
-  color: #ffe0b3;
-  font-size: 1.1rem;
+.aesthetic-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.aesthetic-card:hover .aesthetic-img-box img {
+  transform: scale(1.08);
+}
+
+/* Floating Tag Badge */
+.card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(18, 12, 8, 0.85);
+  color: #f39c12;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(243, 156, 18, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* Caption Footer */
+.aesthetic-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 6px 4px;
+}
+
+.aesthetic-caption h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.view-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f39c12;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.aesthetic-card:hover .view-link {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Aesthetic Lightbox Modal
+   ========================================================================== */
+
+.aesthetic-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 6, 4, 0.94);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeInModal 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-content-box {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  background: #140e0a;
+  border: 1px solid rgba(243, 156, 18, 0.25);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+  animation: popInModal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  transform: rotate(90deg);
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-nav:hover {
+  background: #f39c12;
+  color: #120e0a;
+  border-color: #f39c12;
+}
+
+.modal-nav.prev {
+  left: 16px;
+}
+
+.modal-nav.next {
+  right: 16px;
+}
+
+.modal-preview {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 680px) {
+  .modal-preview {
+    flex-direction: row;
+  }
+}
+
+.modal-preview img {
+  flex: 1.3;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.modal-meta {
+  flex: 1;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modal-tag {
+  background: rgba(243, 156, 18, 0.18);
+  color: #f39c12;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(243, 156, 18, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.modal-meta h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 24px;
+}
+
+.modal-btn {
+  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px rgba(230, 126, 34, 0.35);
+  transition: all 0.25s ease;
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(230, 126, 34, 0.5);
+}
+
+/* Animations */
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .gallery-main-title {
+    font-size: 2.2rem;
+  }
+
+  .gallery-creative-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-variant-1 .aesthetic-img-box,
+  .card-variant-2 .aesthetic-img-box,
+  .card-variant-3 .aesthetic-img-box {
+    height: 240px;
+  }
+
+  .modal-meta {
+    padding: 24px 20px;
+  }
+}
+
+
+
