@@ -84,29 +84,29 @@ const menuItems = [
     category: 'Noodles',
     name: 'Veg Noodles',
     price: 70,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/veg_noodles.jpg',
+    image: '/images/veg_noodles.jpg'
   },
   {
     category: 'Noodles',
     name: 'Hakka Noodles',
     price: 100,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1612966608997-30d411b49986?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/hakka_noodles.jpg',
+    image: '/images/hakka_noodles.jpg'
   },
   {
     category: 'Noodles',
     name: 'Paneer Noodles',
     price: 120,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/paneer_noodles.jpg',
+    image: '/images/paneer_noodles.jpg'
   },
   {   
     category: 'Noodles',
     name: 'garlic Noodles',
     price: 120,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/garlic_noodles.jpg',
+    image: '/images/garlic_noodles.jpg'
   },
   {
     category: 'Rice',
@@ -175,29 +175,30 @@ const menuItems = [
     category: 'Maggi',
     name: 'Plain Maggi',
     price: 40,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/plain_maggi.jpg',
+   image: 'https://cdn.uengage.io/uploads/28289/image-P8J65B-1720180603.jpg'
   },
   {
     category: 'Maggi',
     name: 'Veg Maggi',
     price: 40,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/veg_maggi.jpg',
+     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4H3Yj4zS6S8t53mSQ4MGpKaJO_peh-hHStFCv6MOS5Q&s=10'
   },
   {
     category: 'Maggi',
     name: 'Paneer Veg Maggi',
     price: 50,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1618411640018-97109ff62fb9?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/paneer_veg_maggi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR5_pFDyJS3n-sDKNQvZJcnPQPqt7n91dYC-Zs6530ew&s=10'
   },
   {
     category: 'Maggi',
     name: 'Cheese Maggi',
     price: 50,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80'
+    imageSource: '/images/cheese_maggi.jpg',
+     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM1RV9PYokOjtaQGLO5KeWFHihu2CS1XrsyqaX845dGQ&s=10'
+
   },
   {
     category: 'Roll',

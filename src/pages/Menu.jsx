@@ -2,20 +2,20 @@ import './Menu.css'
 import { useMemo, useState } from 'react'
 
 const categoryFallbacks = {
-  Drinks: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=640&q=80',
-  Shake: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=640&q=80',
-  Pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=640&q=80',
-  Burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=640&q=80',
-  Momos: 'https://images.unsplash.com/photo-1625220194771-7ebedd0b7a1c?auto=format&fit=crop&w=640&q=80',
-  Rice: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=640&q=80',
-  Noodles: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=640&q=80',
-  Maggi: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=640&q=80',
-  Roll: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=640&q=80',
-  Chaap: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=640&q=80',
-  Pasta: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=640&q=80',
-  Pastry: 'https://images.unsplash.com/photo-1557308536-ee471ef2c390?auto=format&fit=crop&w=640&q=80',
-  Soup: 'https://images.unsplash.com/photo-1547592165-e1d17fed6005?auto=format&fit=crop&w=640&q=80',
-  'Chilli Items': 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=640&q=80',
+  Drinks: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=70',
+  Shake: '/images/mango_shake.jpg',
+  Pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=70',
+  Burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=70',
+  Momos: '/images/steamed_momos.jpg',
+  Rice: '/images/paneer_fried_rice.jpg',
+  Noodles: '/images/veg_noodles.jpg',
+  Maggi: '/images/plain_maggi.jpg',
+  Roll: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=70',
+  Chaap: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=500&q=70',
+  Pasta: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=500&q=70',
+  Pastry: 'https://images.unsplash.com/photo-1557308536-ee471ef2c390?auto=format&fit=crop&w=500&q=70',
+  Soup: '/images/veg_soup.jpg',
+  'Chilli Items': '/images/chilli_momos.jpg',
 }
 
 const getFallbackImage = (categoryTitle) => {
