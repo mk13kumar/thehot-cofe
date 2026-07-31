@@ -205,49 +205,49 @@ const menuItems = [
     name: 'Spring Roll',
     price: 60,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAjjVEnSWh1iyrfXbCzCPnkKCvIGMsGMWJHNDUVOau-Q&s=10'
   },
   {
     category: 'Roll',
-    name: 'Tanduri spring Roll',
+    name: 'Tandoori spring Roll',
     price: 90,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6skqX1lTsMQERjIqV4a1aet5prdIzV8Tq1UreYkAHg&s=10'
   },
   {
     category: 'Roll',
     name: 'Tandoori paneer Roll',
     price: 50,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1628102478825-780b62e49733?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUpKHvMOs_mw66cR2bK51BixP3x5L5WyexFZm-qZdW_g&s=10'
   },
   {
     category: 'Roll',
     name: 'Paneer Roll',
     price: 50,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0dulsLzfgTMGp8TlMySisezDvTnwnWun1wX9Nn1Tlww&s=10'
   },
   {
     category: 'Roll',
     name: 'Tandoori Chaap Roll',
     price: 50,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6skqX1lTsMQERjIqV4a1aet5prdIzV8Tq1UreYkAHg&s=10'
   },
   {
     category: 'Roll',
     name: 'Malai Chaap Roll',
     price: 120,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDUok3EWN3RtNNOprjbmUfE-sY_gDLl8G3F0Gks9hXVw&s=10'
   },
   {
     category: 'Roll',
     name: 'Veg khathi Roll',
     price: 50,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAjjVEnSWh1iyrfXbCzCPnkKCvIGMsGMWJHNDUVOau-Q&s=10'
   },
   {
     category: 'Burger',
@@ -345,119 +345,106 @@ const menuItems = [
     name: 'Chilli Potato',
     price: 130,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6094P0IUKMHpdF0cIUfKKwDDqY6h-1J7XVIj-Eg8udQ&s=10'
   },
   {
     category: 'Chilli Items',
     name: 'Honey Chilli Potato',
     price: 150,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRssu0VDTWoPFSJzDhe1luR-Rl8v5rmoGdzOWffNrENRw&s=10'
   },
   {
     category: 'Chilli Items',
     name: 'Chilli Soya Chunks',
     price: 130,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQFIzF1yg3wgQ7IOohXNtDIEwkYX9qWAiY5v-nbhmlw&s=10'
   },
   {
     category: 'Chilli Items',
     name: 'Manchurian',
     price: 130,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKhWw9L9QHmXS9janYk6yIVAjls065p-ie3Taeq7jUsA&s=10'
   },
-  {
-    category: 'Chilli Items',
-    name: 'Chilli Paneer ',
-    price: 140 ,
-    imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80'
-  },
+ 
   {
     category: 'Chilli Items',
     name: 'Chilli Paneer',
     price: 140 ,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVqZI1B-gQKSmvrDwSu52s55D76WF2ss8vgVSUh2hHnw&s=10'
   },
   {
     category: 'Chilli Items',
     name: 'Paneer Finger',
     price: 120,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_7JVLsJg0_Cp13buzVYQ_u8sbjKEKBBNXntHhXwpYZQ&s=10'
   },
   {
     category: 'Chaap',
     name: 'Tandoori Chaap',
     price: 220,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkVadJE7ct8l_pB2xFtFKLiEfdGNDSItY38aDVk9mvzA&s=10'
   },
   {
     category: 'Chaap',
     name: 'Malai Chaap',
     price: 220,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSTEgiWWcVXKQXhNqgZ1LmVXnXxXQu6DqKQgl1IRe9DQ&s=10'
   },
   {
     category: 'Chaap',
     name: 'Chilli Chaap',
     price: 220,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTzLOdjTwRCDM5l6gm-EU5-yaOw3Oja7sY22JEnkr0wQ&s=10'
   },
   {
     category: 'Chaap',
     name: 'Afghani Chaap',
     price: 220,
     imageSource: 'WhatsApp Image 2026-05-31 at 2.03.44 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0cvF9hSWC9l2c7dBXQ1iDkGEGh79Zy37WhMRbGbceHA&s=10'
   },
   {
     category: 'Pasta',
     name: 'Veg Pasta',
     price: 80,
     imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfOZeGcUVfEmhUQWghUubaM_f-UZPthJ3vaKdUVMY_iA&s=10'
   },
   {
     category: 'Pasta',
     name: 'Paneer Pasta',
     price: 100,
     imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG9DzWNHmpZ-67egNu-GM4WGGn8PeqyIhBDhbahTLB4Q&s=10'
   },
   {
     category: 'Pasta',
     name: 'Italian Sauce Pasta',
     price: 120,
     imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR826sUU5iEVWlZ-EbuiDT4mxiVgC3WVvmgSGgUDVMwRw&s=10'
   },
   {
     category: 'Pasta',
     name: 'Red Sauce Pasta',
     price: 120,
     imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgqegPBYdqAXit71UHcIDZBavqiqFU5Bkj5ixx617CzA&s=10'
   },
   {
     category: 'Pasta',
     name: 'White Sauce Pasta',
     price: 140,
     imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    category: 'Pasta',
-    name: 'Cheese Pasta',
-    price: 140,
-    imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCyo0SUTwjpRQYmh9eXH9N6dElXegR9JRJi6e2rB2tYg&s=10'
   },
   {
     category: 'Special Combo Palet',
@@ -527,7 +514,7 @@ const menuItems = [
     name: 'White Forest Pastry',
     price: 30,
     imageSource: 'WhatsApp Image 2026-05-29 at 9.27.51 PM.jpeg',
-    image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt70oBqv2odgLN2oLpRkOhnW3qvJHZQLAuuXM8ggKr1w&s=10'
   },
   {
     category: 'Pastry',
