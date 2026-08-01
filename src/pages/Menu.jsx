@@ -57,6 +57,7 @@ const Menu = ({ whatsappNumber, menuCategories = [], onOrder = () => { } }) => {
   const [cartItems, setCartItems] = useState([])
   const [phone, setPhone] = useState("");
 
+
   const categoryTitles = ['All', ...categories.map((c) => c.title)]
 
   const addToCart = (item) => {
@@ -272,6 +273,8 @@ Thank you! 😊`;
                 <span className="cart-items-count">
                   {cartTotalItems} items
                 </span>
+
+               
               </div>
 
               <div className="cart-items-list">
@@ -311,7 +314,7 @@ Thank you! 😊`;
               <div className="cart-footer">
                 <input
                   type="tel"
-                  placeholder="Enter your mobile number"
+                  placeholder="Enter mobile number"
                   value={phone}
                   onChange={(e) =>
                     setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
