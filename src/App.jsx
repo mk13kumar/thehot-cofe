@@ -1,7 +1,8 @@
-﻿import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
 import AppRoutes from './components/AppRoutes.jsx'
+import { AdminProvider } from './context/adminContext.jsx'
 import {
   whatsappNumber,
   heroImage,
@@ -20,22 +21,24 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className="page">
-        <Header whatsappNumber={whatsappNumber} />
-        <main>
-          <AppRoutes
-            whatsappNumber={whatsappNumber}
-            heroImage={heroImage}
-            specialItems={specialItems}
-            menuCategories={menuCategories}
-            onOrder={handleOrder}
-            galleryItems={galleryItems}
-          />
-        </main>
-        <Footer whatsappNumber={whatsappNumber} />
-      </div>
-    </BrowserRouter>
+    <AdminProvider>
+      <BrowserRouter>
+        <div className="page">
+          <Header whatsappNumber={whatsappNumber} />
+          <main>
+            <AppRoutes
+              whatsappNumber={whatsappNumber}
+              heroImage={heroImage}
+              specialItems={specialItems}
+              menuCategories={menuCategories}
+              onOrder={handleOrder}
+              galleryItems={galleryItems}
+            />
+          </main>
+          <Footer whatsappNumber={whatsappNumber} />
+        </div>
+      </BrowserRouter>
+    </AdminProvider>
   )
 }
 

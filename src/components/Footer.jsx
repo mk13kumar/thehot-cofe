@@ -52,7 +52,13 @@ function Footer({ whatsappNumber }) {
         </div>
       </div>
 
-      <div className="footer-bottom">© {new Date().getFullYear()} The Hot & Cold — All rights reserved</div>
+      <div className="footer-bottom">
+        <span>© {new Date().getFullYear()} The Hot & Cold — All rights reserved</span>
+        <span style={{ margin: '0 8px' }}>•</span>
+        <NavLink to="/admin" style={{ color: '#c7a793', textDecoration: 'none', fontSize: '0.85rem' }}>
+          Owner Portal 🔒
+        </NavLink>
+      </div>
     </footer>
   )
 }

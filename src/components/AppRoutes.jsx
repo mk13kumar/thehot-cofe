@@ -3,6 +3,7 @@ import Home from '../pages/Home.jsx'
 import Menu from '../pages/Menu.jsx'
 import Gallery from '../pages/Gallery.jsx'
 import Contact from '../pages/Contact.jsx'
+import Admin from '../pages/Admin.jsx'
 
 const AppRoutes = ({ whatsappNumber, heroImage, specialItems, menuCategories, onOrder, galleryItems }) => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = ({ whatsappNumber, heroImage, specialItems, menuCategories, on
       />
       <Route path="/gallery" element={<Gallery galleryItems={galleryItems} />} />
       <Route path="/contact" element={<Contact whatsappNumber={whatsappNumber} />} />
+      <Route path="/admin" element={<Admin />} />
       <Route
         path="*"
         element={<Home whatsappNumber={whatsappNumber} heroImage={heroImage} specialItems={specialItems} />}

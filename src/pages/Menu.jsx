@@ -51,12 +51,35 @@ const formatPrices = (prices) => {
     .join(' / ')
 }
 
-const Menu = ({ whatsappNumber, menuCategories = [], onOrder = () => { } }) => {
-  const categories = Array.isArray(menuCategories) ? menuCategories : []
+import { useAdmin } from '../context/adminContext.jsx'
+
+const Menu = ({ whatsappNumber: initialWhatsapp, menuCategories = [], onOrder = () => { } }) => {
+  const { menuItems: dynamicMenuItems, storeSettings } = useAdmin()
+  const whatsappNumber = storeSettings?.whatsappNumber || initialWhatsapp
+
   const [activeCategory, setActiveCategory] = useState('All')
   const [cartItems, setCartItems] = useState([])
   const [phone, setPhone] = useState("");
 
+  // Group dynamic menu items by category
+  const categories = useMemo(() => {
+    if (!dynamicMenuItems || dynamicMenuItems.length === 0) {
+      return Array.isArray(menuCategories) ? menuCategories : []
+    }
+
+    const catMap = {}
+    dynamicMenuItems.forEach((item) => {
+      if (!catMap[item.category]) {
+        catMap[item.category] = {
+          id: item.category.toLowerCase().replace(/\s+/g, '-'),
+          title: item.category,
+          items: [],
+        }
+      }
+      catMap[item.category].items.push(item)
+    })
+    return Object.values(catMap)
+  }, [dynamicMenuItems, menuCategories])
 
   const categoryTitles = ['All', ...categories.map((c) => c.title)]
 
@@ -179,12 +202,20 @@ Thank you! 😊`;
 
                       const fallback = getFallbackImage(category.title);
 
+                      const isOutOfStock = item.inStock === false
+
                       return (
-                        <article key={item.id} className="special-card">
+                        <article key={item.id} className={`special-card ${isOutOfStock ? 'card-out-of-stock' : ''}`}>
                           <div className="special-media">
                             {item.isSpecial && (
                               <span className="special-badge">
                                 ★ Special
+                              </span>
+                            )}
+
+                            {isOutOfStock && (
+                              <span className="sold-out-badge">
+                                SOLD OUT
                               </span>
                             )}
 
@@ -223,6 +254,7 @@ Thank you! 😊`;
                                     className="quantity-btn"
                                     onClick={() => removeFromCart(item)}
                                     disabled={
+                                      isOutOfStock ||
                                       !cartItems.some(
                                         (entry) => entry.id === item.id
                                       )
@@ -241,6 +273,7 @@ Thank you! 😊`;
                                     type="button"
                                     className="quantity-btn"
                                     onClick={() => addToCart(item)}
+                                    disabled={isOutOfStock}
                                   >
                                     +
                                   </button>
@@ -248,10 +281,11 @@ Thank you! 😊`;
 
                                 <button
                                   type="button"
-                                  className="btn btn-primary"
-                                  onClick={() => onOrder(item)}
+                                  className={`btn ${isOutOfStock ? 'btn-disabled' : 'btn-primary'}`}
+                                  onClick={() => !isOutOfStock && onOrder(item)}
+                                  disabled={isOutOfStock}
                                 >
-                                  Order
+                                  {isOutOfStock ? 'Sold Out' : 'Order'}
                                 </button>
                               </div>
                             </div>

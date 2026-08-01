@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom'
+import { useAdmin } from '../context/adminContext.jsx'
 
-const Header = ({ whatsappNumber }) => {
+const Header = ({ whatsappNumber: initialWhatsapp }) => {
+  const { isAuthenticated, storeSettings } = useAdmin() || {}
+  const whatsappNumber = storeSettings?.whatsappNumber || initialWhatsapp
+
   return (
     <header className="site-header">
       <div className="brand-wrap">
@@ -26,6 +30,11 @@ const Header = ({ whatsappNumber }) => {
         <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Contact
         </NavLink>
+        {isAuthenticated && (
+          <NavLink to="/admin" className={({ isActive }) => `nav-link admin-nav-link ${isActive ? 'active' : ''}`}>
+            👑 Owner Panel
+          </NavLink>
+        )}
       </nav>
 
       <div className="header-cta">
