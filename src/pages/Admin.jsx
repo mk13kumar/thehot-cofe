@@ -32,8 +32,8 @@ const Admin = () => {
   const [customCatName, setCustomCatName] = useState('')
 
   // Email & Password Login State
-  const [emailInput, setEmailInput] = useState('mk13kumar@gmail.com')
-  const [passwordInput, setPasswordInput] = useState('owner123')
+  const [emailInput, setEmailInput] = useState('')
+  const [passwordInput, setPasswordInput] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [loginError, setLoginError] = useState('')
 
@@ -291,69 +291,188 @@ const Admin = () => {
     }
   }
 
+  // Sign In vs Sign Up Toggle State
+  const [authMode, setAuthMode] = useState('login') // 'login' | 'signup'
+  const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '' })
+
+  // Handle Sign Up Form Submit
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault()
+    setLoginError('')
+
+    if (!signUpData.name.trim() || !signUpData.email.trim() || !signUpData.password.trim()) {
+      setLoginError('⚠️ Please fill out all fields to register.')
+      return
+    }
+
+    const res = addAuthorizedAccount({
+      name: signUpData.name,
+      email: signUpData.email,
+      password: signUpData.password,
+      role: 'Owner',
+    })
+
+    if (res.success) {
+      // Auto-login newly registered account & navigate authMode to login for future
+      const registeredEmail = signUpData.email
+      login(registeredEmail, signUpData.password)
+      setEmailInput(registeredEmail)
+      setPasswordInput('')
+      setSignUpData({ name: '', email: '', password: '' })
+      setAuthMode('login')
+      showToast(`🎉 Registration successful! Welcome ${signUpData.name}.`)
+    } else {
+      setLoginError(res.message)
+    }
+  }
+
   // -------------------------------------------------------------
-  // UNAUTHENTICATED EMAIL & PASSWORD LOGIN VIEW
+  // UNAUTHENTICATED EMAIL & PASSWORD LOGIN / SIGN UP VIEW
   // -------------------------------------------------------------
   if (!isAuthenticated) {
     return (
       <div className="admin-login-wrapper">
         <div className="admin-login-card email-login-card">
           <div className="brand-badge-logo">👑 OWNER PORTAL</div>
-          <h1 className="admin-login-title">Management Sign In</h1>
+          <h1 className="admin-login-title">
+            {authMode === 'login' ? 'Management Sign In' : 'Register New Owner Account'}
+          </h1>
           <p className="admin-login-subtitle">The Hot & Cold Cafe — Owner Dashboard</p>
 
-          <form onSubmit={handleLoginSubmit} className="email-login-form">
-            {loginError && <div className="login-error-badge">{loginError}</div>}
-
-            <div className="login-form-group">
-              <label>Authorized Email Address</label>
-              <div className="input-icon-wrap">
-                <span className="input-icon">✉️</span>
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your authorized email..."
-                  value={emailInput}
-                  onChange={(e) => setEmailInput(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="login-form-group">
-              <label>Password</label>
-              <div className="input-icon-wrap">
-                <span className="input-icon">🔒</span>
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  required
-                  placeholder="Enter password..."
-                  value={passwordInput}
-                  onChange={(e) => setPasswordInput(e.target.value)}
-                />
-                <button
-                  type="button"
-                  className="eye-toggle-btn"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? '👁️' : '🙈'}
-                </button>
-              </div>
-            </div>
-
-            <button type="submit" className="login-submit-btn">
-              Sign In to Dashboard 🚀
+          {/* Auth Mode Toggle Tabs (Sign In / Sign Up) */}
+          <div className="auth-mode-toggle">
+            <button
+              type="button"
+              className={`auth-toggle-btn ${authMode === 'login' ? 'active' : ''}`}
+              onClick={() => {
+                setAuthMode('login')
+                setLoginError('')
+              }}
+            >
+              🔑 Sign In
             </button>
-          </form>
-
-          <div className="login-credentials-hint">
-            <p className="hint-title">🔒 Authorized Emails (Strictly Max 3 Users):</p>
-            {accounts.map((acc, i) => (
-              <p key={acc.id}>
-                <strong>#{i + 1} {acc.role}:</strong> <code>{acc.email}</code> (Pass: <code>{acc.password}</code>)
-              </p>
-            ))}
-            <small>⚠️ Extra emails outside these 3 registered accounts will be blocked.</small>
+            <button
+              type="button"
+              className={`auth-toggle-btn ${authMode === 'signup' ? 'active' : ''}`}
+              onClick={() => {
+                setAuthMode('signup')
+                setLoginError('')
+              }}
+            >
+              ✍️ Sign Up (Register)
+            </button>
           </div>
+
+          {authMode === 'login' ? (
+            <form onSubmit={handleLoginSubmit} className="email-login-form" autoComplete="off">
+              {loginError && <div className="login-error-badge">{loginError}</div>}
+
+              <div className="login-form-group">
+                <label>Authorized Email Address</label>
+                <div className="input-icon-wrap">
+                  <span className="input-icon">✉️</span>
+                  <input
+                    type="email"
+                    required
+                    autoComplete="off"
+                    placeholder="Enter your email address..."
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="login-form-group">
+                <label>Password</label>
+                <div className="input-icon-wrap">
+                  <span className="input-icon">🔒</span>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    autoComplete="new-password"
+                    placeholder="Enter password..."
+                    value={passwordInput}
+                    onChange={(e) => setPasswordInput(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className="eye-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? '👁️' : '🙈'}
+                  </button>
+                </div>
+              </div>
+
+              <button type="submit" className="login-submit-btn">
+                Sign In to Dashboard 🚀
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={handleSignUpSubmit} className="email-login-form" autoComplete="off">
+              {loginError && <div className="login-error-badge">{loginError}</div>}
+
+              <div className="login-form-group">
+                <label>Your Full Name *</label>
+                <div className="input-icon-wrap">
+                  <span className="input-icon">👤</span>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="off"
+                    placeholder="e.g. Munish"
+                    value={signUpData.name}
+                    onChange={(e) => setSignUpData({ ...signUpData, name: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="login-form-group">
+                <label>Your Email Address *</label>
+                <div className="input-icon-wrap">
+                  <span className="input-icon">✉️</span>
+                  <input
+                    type="email"
+                    required
+                    autoComplete="off"
+                    placeholder="e.g. munish@thehotandcold.com"
+                    value={signUpData.email}
+                    onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="login-form-group">
+                <label>Set Password *</label>
+                <div className="input-icon-wrap">
+                  <span className="input-icon">🔒</span>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    autoComplete="new-password"
+                    placeholder="Set password"
+                    value={signUpData.password}
+                    onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
+                  />
+                  <button
+                    type="button"
+                    className="eye-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? '👁️' : '🙈'}
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="login-submit-btn"
+                disabled={accounts.length >= 2}
+              >
+                {accounts.length >= 2 ? '🔒 Max 2 Accounts Limit Reached' : 'Create Account & Sign In 🎉'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     )
@@ -370,8 +489,8 @@ const Admin = () => {
       {/* Owner Header Bar */}
       <div className="admin-header-ribbon">
         <div className="owner-title-block">
-          <span className="crown-badge">👑 OWNER PANEL</span>
-          <h2>The Hot & Cold Cafe</h2>
+          <span className="crown-badge">👑 OWNER PANEL — {currentUser?.name || 'Owner'} ({currentUser?.email})</span>
+          <h2>The Hot & Cold Cafe Management</h2>
         </div>
 
         <div className="header-status-controls">
@@ -451,12 +570,7 @@ const Admin = () => {
             </div>
 
             <div className="toolbar-action-buttons">
-              <button
-                className="add-category-secondary-btn"
-                onClick={() => setIsCategoryModalOpen(true)}
-              >
-                📂 + New Category
-              </button>
+             
               <button className="add-dish-primary-btn" onClick={handleOpenAddModal}>
                 ➕ Add New Dish
               </button>
@@ -641,15 +755,15 @@ const Admin = () => {
               </div>
             </div>
 
-            {/* Authorized Accounts Card (Strictly Max 3 Users) */}
+            {/* Authorized Accounts Card (Strictly Max 2 Users) */}
             <div className="settings-card accounts-management-card">
               <div className="card-header-flex">
                 <div>
                   <h3>👥 Authorized Sign-In Accounts</h3>
-                  <p className="subtext">Strictly maximum 3 emails allowed to access dashboard</p>
+                  <p className="subtext">Strictly maximum 2 owners/users allowed to access dashboard</p>
                 </div>
                 <span className="accounts-count-pill">
-                  {accounts.length} / 3 Accounts Used
+                  {accounts.length} / 2 Accounts Registered
                 </span>
               </div>
 
@@ -659,7 +773,7 @@ const Admin = () => {
                     <div className="acc-info">
                       <span className="acc-role-badge">{acc.role} #{index + 1}</span>
                       <p className="acc-email">{acc.email}</p>
-                      <small className="acc-name">{acc.name}</small>
+                      <small className="acc-name">{acc.name} (Pass: {acc.password})</small>
                     </div>
                     <div className="acc-actions">
                       <button
@@ -695,7 +809,7 @@ const Admin = () => {
                 ))}
               </div>
 
-              {accounts.length < 3 ? (
+              {accounts.length < 2 ? (
                 <button
                   className="add-acc-btn"
                   onClick={() => {
@@ -704,11 +818,11 @@ const Admin = () => {
                     setIsAccountModalOpen(true)
                   }}
                 >
-                  ➕ Add Authorized Email (Slot {accounts.length + 1} of 3)
+                  ➕ Add Authorized Account (Slot {accounts.length + 1} of 2)
                 </button>
               ) : (
                 <div className="max-limit-badge">
-                  🔒 Maximum limit reached (3/3 Accounts Registered). Delete or edit an account to change email.
+                  🔒 Maximum limit reached (2/2 Accounts Registered). Edit or delete an account to change email/password.
                 </div>
               )}
             </div>

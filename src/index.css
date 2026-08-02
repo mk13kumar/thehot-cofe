@@ -11,6 +11,12 @@
   --text: #f9f5f0;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,6 +29,7 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 #root {

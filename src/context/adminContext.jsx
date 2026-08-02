@@ -12,28 +12,21 @@ const STORAGE_KEYS = {
   CATEGORIES: 'hc_admin_categories',
 }
 
-// Initial 3 Authorized Accounts (Strictly Max 3 Allowed)
+// Initial Authorized Accounts (Strictly 2 Users Allowed to Sign Up)
 const INITIAL_ACCOUNTS = [
   {
     id: 'acc_1',
-    name: 'Main Owner',
-    email: 'owner@thehotandcold.com',
-    password: 'owner123',
+    name: 'Munish (Owner 1)',
+    email: 'munish@thehotandcold.com',
+    password: 'munish123',
     role: 'Owner',
   },
   {
     id: 'acc_2',
-    name: 'Owner Mobile',
-    email: 'mk13kumar@gmail.com',
-    password: 'owner123',
+    name: 'Gaurav (Owner 2)',
+    email: 'gaurav@thehotandcold.com',
+    password: 'gaurav123',
     role: 'Owner',
-  },
-  {
-    id: 'acc_3',
-    name: 'Cafe Manager',
-    email: 'manager@thehotandcold.com',
-    password: 'manager123',
-    role: 'Manager',
   },
 ]
 
@@ -180,7 +173,7 @@ export const AdminProvider = ({ children }) => {
     if (!emailExists) {
       return {
         success: false,
-        message: '❌ Access Denied! Only 3 authorized emails are allowed to sign in. This email is not registered.',
+        message: '❌ Access Denied! Only authorized owner emails can sign in. This email is not registered.',
       }
     }
 
@@ -197,12 +190,12 @@ export const AdminProvider = ({ children }) => {
     localStorage.removeItem(STORAGE_KEYS.CURRENT_USER)
   }
 
-  // Account Management Methods (Strictly Max 3 Accounts)
+// Account Management Methods (Strictly Max 2 Accounts)
   const addAuthorizedAccount = ({ name, email, password, role = 'Owner' }) => {
-    if (accounts.length >= 3) {
+    if (accounts.length >= 2) {
       return {
         success: false,
-        message: '⚠️ Maximum limit reached! Only 3 authorized accounts can sign in.',
+        message: '⚠️ Maximum limit reached! Only 2 authorized accounts can be registered.',
       }
     }
 
@@ -224,7 +217,7 @@ export const AdminProvider = ({ children }) => {
     }
 
     setAccounts((prev) => [...prev, newAcc])
-    return { success: true, message: `✅ Authorized account (${trimmedEmail}) added successfully!` }
+    return { success: true, message: `✅ Authorized account (${trimmedEmail}) registered successfully!` }
   }
 
   const updateAuthorizedAccount = (id, updatedData) => {
