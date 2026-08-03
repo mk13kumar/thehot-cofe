@@ -51,14 +51,14 @@ const getInitialMenuItems = () => {
 }
 
 export const AdminProvider = ({ children }) => {
-  // Authorized Accounts state (Strictly Max 3 Accounts)
+  // Authorized Accounts state (Strictly 2 Accounts Allowed: Munish & Gaurav)
   const [accounts, setAccounts] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.ACCOUNTS)
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed.slice(0, 3) // Enforce max 3 accounts limit
+          return parsed.slice(0, 2) // Enforce max 2 accounts limit
         }
       } catch (e) {
         console.error('Failed to parse saved accounts', e)
