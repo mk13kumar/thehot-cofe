@@ -201,15 +201,27 @@ Thank you! 😊`;
                         : formatPrices(item.prices);
 
                       const fallback = getFallbackImage(category.title);
-
                       const isOutOfStock = item.inStock === false
 
+                      const cartEntry = cartItems.find((entry) => entry.id === item.id)
+                      const itemQty = cartEntry?.quantity || 0
+                      const isSelected = itemQty > 0
+
                       return (
-                        <article key={item.id} className={`special-card ${isOutOfStock ? 'card-out-of-stock' : ''}`}>
+                        <article
+                          key={item.id}
+                          className={`special-card ${isSelected ? 'selected-card' : ''} ${isOutOfStock ? 'card-out-of-stock' : ''}`}
+                        >
                           <div className="special-media">
                             {item.isSpecial && (
                               <span className="special-badge">
                                 ★ Special
+                              </span>
+                            )}
+
+                            {isSelected && (
+                              <span className="selected-item-badge">
+                                ✓ {itemQty} Selected
                               </span>
                             )}
 
@@ -231,7 +243,10 @@ Thank you! 😊`;
                           </div>
 
                           <div className="special-body">
-                            <h4>{item.name}</h4>
+                            <h4>
+                              {item.name}
+                              {isSelected && <span className="name-check-badge"> ✓</span>}
+                            </h4>
 
                             {item.type ? (
                               <p className="item-type">{item.type}</p>
@@ -248,25 +263,20 @@ Thank you! 😊`;
                               </span>
 
                               <div className="footer-actions">
-                                <div className="quantity-controls">
+                                <div className={`quantity-controls ${isSelected ? 'has-quantity' : ''}`}>
                                   <button
                                     type="button"
                                     className="quantity-btn"
                                     onClick={() => removeFromCart(item)}
                                     disabled={
-                                      isOutOfStock ||
-                                      !cartItems.some(
-                                        (entry) => entry.id === item.id
-                                      )
+                                      isOutOfStock || !isSelected
                                     }
                                   >
                                     −
                                   </button>
 
-                                  <span className="item-qty">
-                                    {cartItems.find(
-                                      (entry) => entry.id === item.id
-                                    )?.quantity || 0}
+                                  <span className={`item-qty ${isSelected ? 'active-qty' : ''}`}>
+                                    {itemQty}
                                   </span>
 
                                   <button
@@ -281,7 +291,7 @@ Thank you! 😊`;
 
                                 <button
                                   type="button"
-                                  className={`btn ${isOutOfStock ? 'btn-disabled' : 'btn-primary'}`}
+                                  className={`btn ${isOutOfStock ? 'btn-disabled' : isSelected ? 'btn-selected' : 'btn-primary'}`}
                                   onClick={() => !isOutOfStock && onOrder(item)}
                                   disabled={isOutOfStock}
                                 >

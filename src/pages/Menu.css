@@ -21,6 +21,51 @@
   filter: grayscale(0.2);
 }
 
+.selected-card {
+  border: 2px solid #ffaa44 !important;
+  box-shadow: 0 0 24px rgba(255, 170, 68, 0.45), 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+  background: linear-gradient(180deg, rgba(255, 170, 68, 0.15) 0%, rgba(35, 20, 12, 0.95) 100%) !important;
+  transform: translateY(-4px);
+}
+
+.selected-item-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.45);
+  z-index: 3;
+  letter-spacing: 0.5px;
+}
+
+.name-check-badge {
+  color: #4ade80;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.quantity-controls.has-quantity {
+  background: rgba(255, 170, 68, 0.2);
+  border: 1px solid rgba(255, 170, 68, 0.5);
+}
+
+.item-qty.active-qty {
+  color: #ffaa44;
+  font-weight: 800;
+}
+
+.btn-selected {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.4) !important;
+}
+
 .sold-out-badge {
   position: absolute;
   top: 12px;
